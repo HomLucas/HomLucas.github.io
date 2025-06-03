@@ -421,10 +421,12 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" class="back-to-top fixed bottom-8 right-8 p-4 rounded-full bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm transition-all duration-300 shadow-lg hover:shadow-xl">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-        </svg>
+    <button id="backToTop" class="back-to-top fixed bottom-6 right-6 md:bottom-8 md:right-8 p-4 md:p-4 rounded-full bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm transition-all duration-300 shadow-lg hover:shadow-xl">
+        <div class="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center">
+            <svg class="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            </svg>
+        </div>
     </button>
 
     <!-- Scripts -->
@@ -486,10 +488,12 @@
                         backToTop.classList.add('visible');
                         backToTop.style.opacity = '1';
                         backToTop.style.transform = 'translateY(0)';
+                        backToTop.style.pointerEvents = 'auto';
                     } else {
                         backToTop.classList.remove('visible');
                         backToTop.style.opacity = '0';
                         backToTop.style.transform = 'translateY(20px)';
+                        backToTop.style.pointerEvents = 'none';
                     }
                     backToTopTicking = false;
                 });
@@ -497,7 +501,8 @@
             }
         });
 
-        backToTop.addEventListener('click', () => {
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
