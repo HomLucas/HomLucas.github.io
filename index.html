@@ -421,7 +421,7 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" class="back-to-top fixed bottom-4 right-4 md:bottom-6 md:right-6 p-3 md:p-4 rounded-full bg-white/30 hover:bg-white/40 text-white backdrop-blur-sm transition-all duration-300 shadow-lg hover:shadow-xl z-50">
+    <button id="backToTop" class="back-to-top fixed bottom-20 right-4 md:bottom-6 md:right-6 p-3 md:p-4 rounded-full bg-white/30 hover:bg-white/40 text-white backdrop-blur-sm transition-all duration-300 shadow-lg hover:shadow-xl z-50">
         <div class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center">
             <svg class="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
@@ -480,6 +480,15 @@
         // Back to top button with improved performance and visibility
         const backToTop = document.getElementById('backToTop');
         let backToTopTicking = false;
+        let isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+        // Function to handle scroll to top
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
 
         window.addEventListener('scroll', () => {
             if (!backToTopTicking) {
@@ -508,21 +517,31 @@
         backToTop.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            scrollToTop();
         });
 
         // Add touch event handling for better mobile response
         backToTop.addEventListener('touchstart', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            scrollToTop();
         });
+
+        // Handle iOS Safari bottom bar
+        if (isIOS) {
+            // Add padding to the bottom of the body to account for the iOS bottom bar
+            document.body.style.paddingBottom = 'env(safe-area-inset-bottom)';
+            
+            // Update button position when the bottom bar appears/disappears
+            window.addEventListener('resize', () => {
+                const bottomBarHeight = window.innerHeight - document.documentElement.clientHeight;
+                if (bottomBarHeight > 0) {
+                    backToTop.style.bottom = `${bottomBarHeight + 20}px`;
+                } else {
+                    backToTop.style.bottom = '20px';
+                }
+            });
+        }
 
         // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
