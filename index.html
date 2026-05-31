@@ -54,37 +54,117 @@
     :root {
       --cursor-x: 50vw;
       --cursor-y: 50vh;
-      --scroll-y: 0;
+
+      --bg: #f8fafc;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --glass-bg: rgba(255,255,255,0.72);
+      --glass-border: rgba(0,0,0,0.07);
+      --glass-hover-bg: rgba(255,255,255,0.9);
+      --glass-hover-border: rgba(0,0,0,0.12);
+      --nav-bg: rgba(255,255,255,0.75);
+      --nav-border: rgba(0,0,0,0.05);
+      --grid-color: rgba(0,0,0,0.035);
+      --tag-bg: rgba(0,0,0,0.04);
+      --tag-border: rgba(0,0,0,0.08);
+      --tag-text: #475569;
+      --tag-hover-bg: rgba(34,211,238,0.12);
+      --tag-hover-border: rgba(34,211,238,0.3);
+      --scrollbar-track: #f1f5f9;
+      --scrollbar-thumb: rgba(0,0,0,0.15);
+      --bg-gradient: linear-gradient(180deg, #f8fafc 0%, #f1f0f6 33%, #f0f5f2 66%, #f8fafc 100%);
+      --mouse-glow-color: rgba(34,211,238,0.04);
+      --orb-cyan: rgba(34,211,238,0.15);
+      --orb-violet: rgba(167,139,250,0.12);
+      --orb-emerald: rgba(52,211,153,0.1);
+      --profile-ring: rgba(0,0,0,0.08);
+      --footer-border: rgba(0,0,0,0.06);
+      --text-white: #0f172a;
+      --text-white-50: rgba(15,23,42,0.5);
+      --text-white-70: rgba(15,23,42,0.7);
+      --text-white-40: rgba(15,23,42,0.4);
+      --text-white-30: rgba(15,23,42,0.3);
+      --text-white-20: rgba(15,23,42,0.2);
+      --text-white-10: rgba(15,23,42,0.1);
+      --border-white-10: rgba(0,0,0,0.08);
+      --border-white-5: rgba(0,0,0,0.04);
+      --border-white-20: rgba(0,0,0,0.12);
+      --bg-white-5: rgba(0,0,0,0.04);
+      --bg-white-10: rgba(0,0,0,0.06);
+      --from-cyan-10: rgba(34,211,238,0.08);
+      --to-violet-10: rgba(167,139,250,0.08);
+      --border-cyan-20: rgba(34,211,238,0.25);
+      --text-cyan-300: #0891b2;
+      --text-cyan-400: #0e7490;
     }
 
-    html {
-      background: #0a0a0f;
-      color-scheme: dark;
+    html.dark {
+      --bg: #0a0a0f;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --glass-bg: rgba(255,255,255,0.03);
+      --glass-border: rgba(255,255,255,0.06);
+      --glass-hover-bg: rgba(255,255,255,0.06);
+      --glass-hover-border: rgba(255,255,255,0.12);
+      --nav-bg: rgba(10,10,15,0.7);
+      --nav-border: rgba(255,255,255,0.04);
+      --grid-color: rgba(255,255,255,0.025);
+      --tag-bg: rgba(255,255,255,0.04);
+      --tag-border: rgba(255,255,255,0.06);
+      --tag-text: #94a3b8;
+      --tag-hover-bg: rgba(34,211,238,0.1);
+      --tag-hover-border: rgba(34,211,238,0.25);
+      --scrollbar-track: #0a0a0f;
+      --scrollbar-thumb: rgba(255,255,255,0.12);
+      --bg-gradient: linear-gradient(180deg, #0a0a0f 0%, #0c0a14 33%, #0a0f0f 66%, #0a0a0f 100%);
+      --mouse-glow-color: rgba(34,211,238,0.06);
+      --orb-cyan: rgba(34,211,238,0.10);
+      --orb-violet: rgba(167,139,250,0.10);
+      --orb-emerald: rgba(52,211,153,0.08);
+      --profile-ring: rgba(255,255,255,0.1);
+      --footer-border: rgba(255,255,255,0.05);
+      --text-white: #ffffff;
+      --text-white-50: rgba(255,255,255,0.5);
+      --text-white-70: rgba(255,255,255,0.7);
+      --text-white-40: rgba(255,255,255,0.4);
+      --text-white-30: rgba(255,255,255,0.3);
+      --text-white-20: rgba(255,255,255,0.2);
+      --text-white-10: rgba(255,255,255,0.1);
+      --border-white-10: rgba(255,255,255,0.1);
+      --border-white-5: rgba(255,255,255,0.05);
+      --border-white-20: rgba(255,255,255,0.2);
+      --bg-white-5: rgba(255,255,255,0.05);
+      --bg-white-10: rgba(255,255,255,0.1);
+      --from-cyan-10: rgba(34,211,238,0.1);
+      --to-violet-10: rgba(167,139,250,0.1);
+      --border-cyan-20: rgba(34,211,238,0.2);
+      --text-cyan-300: #67e8f9;
+      --text-cyan-400: #22d3ee;
     }
+
+    html { background: var(--bg); color-scheme: light; }
+    html.dark { color-scheme: dark; }
 
     body {
       font-family: 'Inter', system-ui, sans-serif;
-      background: #0a0a0f;
-      color: #e2e8f0;
+      background: var(--bg);
+      color: var(--text);
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
-    ::selection {
-      background: rgba(34, 211, 238, 0.25);
-      color: #fff;
-    }
+    ::selection { background: rgba(34, 211, 238, 0.25); color: #fff; }
 
     ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #0a0a0f; }
-    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 3px; }
+    ::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+    ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
 
-    /* ── Fixed background layers ── */
     .grid-bg {
       position: fixed; inset: 0; z-index: 0; pointer-events: none;
       background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
       background-size: 60px 60px;
       transform: translateY(0);
       will-change: transform;
@@ -93,41 +173,43 @@
     .gradient-orb {
       position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0;
       will-change: transform;
+      transition: background 0.5s ease;
     }
 
     .mouse-glow {
       position: fixed; inset: 0; z-index: 0; pointer-events: none;
-      background: radial-gradient(600px circle at var(--cursor-x, 50vw) var(--cursor-y, 50vh), rgba(34,211,238,0.06), transparent 60%);
+      background: radial-gradient(600px circle at var(--cursor-x, 50vw) var(--cursor-y, 50vh), var(--mouse-glow-color), transparent 60%);
     }
 
     .bg-shift {
       position: fixed; inset: 0; z-index: -1; pointer-events: none;
-      background: linear-gradient(180deg, #0a0a0f 0%, #0c0a14 33%, #0a0f0f 66%, #0a0a0f 100%);
-      transition: background 0.1s ease;
+      background: var(--bg-gradient);
+      transition: background 0.5s ease;
     }
 
-    /* ── Nav ── */
     .nav-blur {
-      background: rgba(10,10,15,0.7);
+      background: var(--nav-bg);
       backdrop-filter: blur(24px) saturate(1.4);
       -webkit-backdrop-filter: blur(24px) saturate(1.4);
-      border-bottom: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid var(--nav-border);
+      transition: background 0.3s ease, border-color 0.3s ease;
     }
 
-    /* ── Glass ── */
     .glass {
-      background: rgba(255,255,255,0.03);
+      background: var(--glass-bg);
       backdrop-filter: blur(24px) saturate(1.2);
       -webkit-backdrop-filter: blur(24px) saturate(1.2);
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid var(--glass-border);
+      transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    html:not(.dark) .glass {
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
     }
 
-    .glass-hover {
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
+    .glass-hover { transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
     .glass-hover:hover {
-      background: rgba(255,255,255,0.06);
-      border-color: rgba(255,255,255,0.12);
+      background: var(--glass-hover-bg);
+      border-color: var(--glass-hover-border);
       transform: translateY(-2px);
     }
 
@@ -137,64 +219,39 @@
       border-radius: 9999px;
       font-size: 0.75rem; font-weight: 500;
       font-family: 'JetBrains Mono', monospace;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.06);
-      color: #94a3b8;
+      background: var(--tag-bg);
+      border: 1px solid var(--tag-border);
+      color: var(--tag-text);
       transition: all 0.2s ease;
     }
     .tag:hover {
-      background: rgba(34,211,238,0.1);
-      border-color: rgba(34,211,238,0.25);
-      color: #22d3ee;
+      background: var(--tag-hover-bg);
+      border-color: var(--tag-hover-border);
+      color: var(--text-cyan-400);
     }
 
-    /* ── Section base ── */
     section {
-      position: relative;
-      z-index: 1;
+      position: relative; z-index: 1;
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
     }
 
-    /* ── Perspective wrapper ── */
-    .persp-wrap {
-      perspective: 1200px;
-    }
+    .persp-wrap { perspective: 1200px; }
 
-    /* ── 3D section reveal ── */
     .sec-reveal {
       opacity: 0;
       transform: rotateX(18deg) translateY(80px) scale(0.92);
       transform-origin: center bottom;
-      transition: none;
       will-change: transform, opacity;
     }
     .sec-reveal.sec-visible {
       animation: sec-enter 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
     @keyframes sec-enter {
-      0% {
-        opacity: 0;
-        transform: rotateX(18deg) translateY(80px) scale(0.92);
-      }
-      100% {
-        opacity: 1;
-        transform: rotateX(0deg) translateY(0) scale(1);
-      }
+      0% { opacity: 0; transform: rotateX(18deg) translateY(80px) scale(0.92); }
+      100% { opacity: 1; transform: rotateX(0deg) translateY(0) scale(1); }
     }
 
-    /* ── Clip-path section divider ── */
-    .clip-reveal {
-      clip-path: inset(0 0 100% 0);
-      transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .clip-reveal.clip-open {
-      clip-path: inset(0 0 0 0);
-    }
-
-    /* ── Word-by-word heading ── */
     .word-split {
       display: inline-block;
       overflow: hidden;
@@ -211,51 +268,32 @@
       opacity: 1;
     }
 
-    /* ── Typewriter ── */
     .typing-cursor::after {
       content: '|';
       animation: blink 1s step-end infinite;
-      color: #22d3ee;
+      color: var(--text-cyan-400);
       font-weight: 300;
     }
 
-    /* ── Hero entrance ── */
     .hero-el {
       opacity: 0;
       transform: translateY(40px) scale(0.96);
       transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
       transition-delay: var(--d, 0s);
     }
-    .hero-el.in {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
+    .hero-el.in { opacity: 1; transform: translateY(0) scale(1); }
 
-    /* ── Scroll indicator ── */
-    .scroll-indicator {
-      animation: scroll-bounce 2.5s ease-in-out infinite;
-    }
+    .scroll-indicator { animation: scroll-bounce 2.5s ease-in-out infinite; }
     @keyframes scroll-bounce {
       0%, 100% { transform: translateY(0); opacity: 0.4; }
       50% { transform: translateY(8px); opacity: 1; }
     }
 
-    /* ── Card 3D tilt ── */
-    .card-tilt {
-      transform-style: preserve-3d;
-      transition: transform 0.1s ease;
-    }
+    .card-tilt { transform-style: preserve-3d; transition: transform 0.1s ease; }
+    .nav-link { color: var(--text-white-50); transition: color 0.2s ease; }
+    .nav-link:hover { color: var(--text-white); }
 
-    /* ── Marker ── */
-    .marker {
-      display: inline-block;
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: #22d3ee;
-      margin-right: 0.5rem;
-      vertical-align: middle;
-      animation: pulse-glow 2s ease-in-out infinite;
-    }
+    .theme-icon { transition: opacity 0.3s ease, transform 0.3s ease; }
 
     @media (max-width: 640px) {
       .grid-bg { background-size: 30px 30px; }
@@ -269,25 +307,27 @@
   <div class="grid-bg" id="gridBg"></div>
   <div class="mouse-glow" id="mouseGlow"></div>
 
-  <div class="gradient-orb w-[500px] h-[500px] bg-cyan-500/10 -top-64 -left-64" id="orb1"></div>
-  <div class="gradient-orb w-[400px] h-[400px] bg-violet-500/10 -bottom-48 -right-48" id="orb2"></div>
-  <div class="gradient-orb w-[300px] h-[300px] bg-emerald-500/8 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" id="orb3"></div>
+  <div class="gradient-orb w-[500px] h-[500px] -top-64 -left-64" id="orb1" style="background: var(--orb-cyan);"></div>
+  <div class="gradient-orb w-[400px] h-[400px] -bottom-48 -right-48" id="orb2" style="background: var(--orb-violet);"></div>
+  <div class="gradient-orb w-[300px] h-[300px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" id="orb3" style="background: var(--orb-emerald);"></div>
 
   <!-- Nav -->
   <nav class="nav-blur fixed top-0 inset-x-0 z-50 h-16 flex items-center">
     <div class="max-w-5xl mx-auto px-6 w-full flex items-center justify-between">
-      <a href="#top" class="text-sm font-semibold text-white/80 hover:text-white transition tracking-tight">
-        <span class="text-cyan-400">~</span> Lucas Hom
+      <a href="#top" class="text-sm font-semibold tracking-tight" style="color: var(--text-white-70);">
+        <span style="color: var(--text-cyan-400);">~</span> Lucas Hom
       </a>
       <div class="hidden sm:flex items-center gap-8">
-        <a href="#about" class="text-sm text-white/50 hover:text-white transition">About</a>
-        <a href="#projects" class="text-sm text-white/50 hover:text-white transition">Projects</a>
-        <a href="#contact" class="text-sm text-white/50 hover:text-white transition">Contact</a>
+        <a href="#about" class="text-sm nav-link">About</a>
+        <a href="#projects" class="text-sm nav-link">Projects</a>
+        <a href="#contact" class="text-sm nav-link">Contact</a>
       </div>
-      <button id="themeToggle" class="p-2 text-white/40 hover:text-white transition" aria-label="Toggle theme">
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path class="dark:hidden" stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
-          <path class="hidden dark:block" stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+      <button id="themeToggle" class="p-2 relative w-8 h-8 flex items-center justify-center" aria-label="Toggle theme" style="color: var(--text-white-40);">
+        <svg class="w-4 h-4 absolute inset-0 m-auto theme-icon" id="sunIcon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="opacity: 0; transform: rotate(90deg) scale(0);">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+        </svg>
+        <svg class="w-4 h-4 absolute inset-0 m-auto theme-icon" id="moonIcon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="opacity: 1; transform: rotate(0) scale(1);">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
         </svg>
       </button>
     </div>
@@ -296,9 +336,9 @@
   <!-- Mobile nav -->
   <div id="mobileMenu" class="fixed top-16 inset-x-0 z-40 nav-blur hidden">
     <div class="px-6 py-4 flex flex-col gap-3">
-      <a href="#about" class="text-sm text-white/50 hover:text-white transition">About</a>
-      <a href="#projects" class="text-sm text-white/50 hover:text-white transition">Projects</a>
-      <a href="#contact" class="text-sm text-white/50 hover:text-white transition">Contact</a>
+      <a href="#about" class="text-sm nav-link">About</a>
+      <a href="#projects" class="text-sm nav-link">Projects</a>
+      <a href="#contact" class="text-sm nav-link">Contact</a>
     </div>
   </div>
 
@@ -308,41 +348,36 @@
       <div class="hero-el mb-8" style="--d: 0.1s;">
         <div class="relative inline-block">
           <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-500/30 via-violet-500/30 to-emerald-500/30 blur-xl animate-pulse-glow"></div>
-          <div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden ring-2 ring-white/10"
-               id="profilePic" style="transform-style: preserve-3d;">
+          <div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden" id="profilePic" style="transform-style: preserve-3d; box-shadow: 0 0 0 2px var(--profile-ring);">
             <img src="img/profile.JPG" alt="Lucas Hom" class="w-full h-full object-cover" loading="eager">
           </div>
         </div>
       </div>
 
-      <h1 class="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight mb-4 hero-el" style="--d: 0.25s;">
-        <span class="text-white">Lucas Hom</span>
+      <h1 class="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight mb-4 hero-el" style="--d: 0.25s; color: var(--text-white);">
+        Lucas Hom
       </h1>
 
-      <p class="text-lg sm:text-xl text-white/40 mb-3 font-mono hero-el" style="--d: 0.4s;">
-        <span class="text-cyan-400">$</span> <span id="typedText"></span><span class="typing-cursor"></span>
+      <p class="text-lg sm:text-xl mb-3 font-mono hero-el" style="--d: 0.4s; color: var(--text-white-40);">
+        <span style="color: var(--text-cyan-400);">$</span> <span id="typedText"></span><span class="typing-cursor"></span>
       </p>
 
-      <p class="text-base sm:text-lg text-white/30 mb-12 hero-el" style="--d: 0.55s;">
+      <p class="text-base sm:text-lg mb-12 hero-el" style="--d: 0.55s; color: var(--text-white-30);">
         San Francisco, CA · UC Davis CS
       </p>
 
       <div class="flex items-center justify-center gap-4 hero-el" style="--d: 0.7s;">
         <a href="#about"
-           class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-medium
-                  bg-white/5 border border-white/10 text-white/80
-                  hover:bg-white/10 hover:border-white/20 hover:text-white
-                  transition-all duration-300 glass-hover">
+           class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-medium glass-hover"
+           style="background: var(--bg-white-5); border: 1px solid var(--border-white-10); color: var(--text-white-70);">
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
           </svg>
           View Work
         </a>
         <a href="#contact"
-           class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-medium
-                  bg-gradient-to-r from-cyan-500/10 to-violet-500/10 border border-cyan-500/20 text-cyan-300
-                  hover:from-cyan-500/20 hover:to-violet-500/20 hover:border-cyan-500/30
-                  transition-all duration-300 glass-hover">
+           class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-medium glass-hover"
+           style="background: linear-gradient(to right, var(--from-cyan-10), var(--to-violet-10)); border: 1px solid var(--border-cyan-20); color: var(--text-cyan-300);">
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
           </svg>
@@ -352,7 +387,7 @@
 
       <div class="mt-20 hero-el" style="--d: 0.85s;">
         <div class="scroll-indicator">
-          <svg class="w-5 h-5 mx-auto text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <svg class="w-5 h-5 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="color: var(--text-white-20);">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
           </svg>
         </div>
@@ -365,13 +400,13 @@
     <div class="max-w-3xl mx-auto w-full py-24 sm:py-32 sec-reveal">
       <div class="text-center mb-16">
         <span class="tag mb-4">$ cat about.md</span>
-        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white mt-4 split-heading">About Me</h2>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mt-4 split-heading" style="color: var(--text-white);">About Me</h2>
       </div>
 
       <div class="glass rounded-2xl p-6 sm:p-8 card-tilt">
         <div class="flex items-start gap-3 mb-6">
-          <span class="text-cyan-400 font-mono text-sm mt-0.5 select-none shrink-0">~$</span>
-          <p class="text-white/70 leading-relaxed text-sm sm:text-base">
+          <span class="font-mono text-sm mt-0.5 select-none shrink-0" style="color: var(--text-cyan-400);">~$</span>
+          <p class="leading-relaxed text-sm sm:text-base" style="color: var(--text-white-70);">
             I'm a software engineer with a Computer Science degree from UC Davis, focused on
             Developer Experience and CI/CD. I design and maintain build pipelines, automate
             workflows, and build tooling that makes engineering teams faster and more reliable.
@@ -380,7 +415,7 @@
         </div>
 
         <div class="mt-8">
-          <p class="text-xs font-mono text-white/30 mb-3 tracking-wider uppercase">Tech & Tools</p>
+          <p class="text-xs font-mono mb-3 tracking-wider uppercase" style="color: var(--text-white-30);">Tech & Tools</p>
           <div class="flex flex-wrap gap-2">
             <span class="tag">Jenkins</span>
             <span class="tag">Groovy</span>
@@ -403,22 +438,20 @@
     <div class="max-w-3xl mx-auto w-full py-24 sm:py-32 sec-reveal">
       <div class="text-center mb-16">
         <span class="tag mb-4">$ ls ./projects/</span>
-        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white mt-4 split-heading">Projects</h2>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mt-4 split-heading" style="color: var(--text-white);">Projects</h2>
       </div>
 
       <div class="glass rounded-2xl p-8 sm:p-10 text-center card-tilt">
-        <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-6">
-          <svg class="w-7 h-7 text-white/40" fill="currentColor" viewBox="0 0 24 24">
+        <div class="w-14 h-14 rounded-2xl mx-auto mb-6 flex items-center justify-center" style="background: var(--bg-white-5); border: 1px solid var(--border-white-10);">
+          <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" style="color: var(--text-white-40);">
             <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
           </svg>
         </div>
-        <h3 class="text-lg font-semibold text-white mb-2">My projects are on GitHub</h3>
-        <p class="text-white/40 text-sm mb-6">Check out my latest work — open source and personal projects.</p>
+        <h3 class="text-lg font-semibold mb-2" style="color: var(--text-white);">My projects are on GitHub</h3>
+        <p class="text-sm mb-6" style="color: var(--text-white-40);">Check out my latest work — open source and personal projects.</p>
         <a href="https://github.com/HomLucas" target="_blank" rel="noopener noreferrer"
-           class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-medium
-                  bg-white/5 border border-white/10 text-white/80
-                  hover:bg-white/10 hover:border-white/20 hover:text-white
-                  transition-all duration-300 glass-hover">
+           class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-medium glass-hover"
+           style="background: var(--bg-white-5); border: 1px solid var(--border-white-10); color: var(--text-white-70);">
           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
             <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
           </svg>
@@ -433,19 +466,17 @@
     <div class="max-w-3xl mx-auto w-full py-24 sm:py-32 sec-reveal">
       <div class="text-center mb-16">
         <span class="tag mb-4">$ echo "hello"</span>
-        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white mt-4 split-heading">Get in Touch</h2>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mt-4 split-heading" style="color: var(--text-white);">Get in Touch</h2>
       </div>
 
       <div class="glass rounded-2xl p-6 sm:p-8 text-center card-tilt">
-        <p class="text-white/50 text-sm sm:text-base mb-8 max-w-md mx-auto leading-relaxed">
+        <p class="text-sm sm:text-base mb-8 max-w-md mx-auto leading-relaxed" style="color: var(--text-white-50);">
           Whether you have a job opportunity, a project idea, or just want to say hi — I'm always open to new conversations.
         </p>
 
         <a href="mailto:homlucas@gmail.com"
-           class="inline-flex items-center gap-3 px-6 py-4 rounded-xl text-sm font-mono
-                  bg-gradient-to-r from-cyan-500/10 to-violet-500/10 border border-cyan-500/20
-                  text-cyan-300 hover:from-cyan-500/20 hover:to-violet-500/20
-                  hover:border-cyan-500/30 transition-all duration-300 glass-hover mb-8">
+           class="inline-flex items-center gap-3 px-6 py-4 rounded-xl text-sm font-mono glass-hover mb-8"
+           style="background: linear-gradient(to right, var(--from-cyan-10), var(--to-violet-10)); border: 1px solid var(--border-cyan-20); color: var(--text-cyan-300);">
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
           </svg>
@@ -454,14 +485,14 @@
 
         <div class="flex items-center justify-center gap-4">
           <a href="https://www.linkedin.com/in/lucas-hom-5369b9b0" target="_blank" rel="noopener noreferrer"
-             class="p-3 rounded-xl glass-hover glass border border-white/5 hover:border-white/10 group">
-            <svg class="w-5 h-5 text-white/30 group-hover:text-white/70 transition" fill="currentColor" viewBox="0 0 24 24">
+             class="p-3 rounded-xl glass-hover glass border group">
+            <svg class="w-5 h-5 transition" fill="currentColor" viewBox="0 0 24 24" style="color: var(--text-white-30);">
               <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
             </svg>
           </a>
           <a href="https://github.com/HomLucas" target="_blank" rel="noopener noreferrer"
-             class="p-3 rounded-xl glass-hover glass border border-white/5 hover:border-white/10 group">
-            <svg class="w-5 h-5 text-white/30 group-hover:text-white/70 transition" fill="currentColor" viewBox="0 0 24 24">
+             class="p-3 rounded-xl glass-hover glass border group">
+            <svg class="w-5 h-5 transition" fill="currentColor" viewBox="0 0 24 24" style="color: var(--text-white-30);">
               <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
             </svg>
           </a>
@@ -471,10 +502,10 @@
   </section>
 
   <!-- Footer -->
-  <footer class="relative z-10 border-t border-white/5 py-8">
+  <footer class="relative z-10 py-8" style="border-top: 1px solid var(--footer-border);">
     <div class="max-w-5xl mx-auto px-6 flex items-center justify-between">
-      <p class="text-xs text-white/20 font-mono">© 2025 Lucas Hom</p>
-      <p class="text-xs text-white/10 font-mono">Built with intent</p>
+      <p class="text-xs font-mono" style="color: var(--text-white-20);">© 2025 Lucas Hom</p>
+      <p class="text-xs font-mono" style="color: var(--text-white-10);">Built with intent</p>
     </div>
   </footer>
 
@@ -488,10 +519,7 @@
       wheelMultiplier: 1,
       touchMultiplier: 1.5,
     });
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
     requestAnimationFrame(raf);
 
     // ─── Sync Lenis with nav links ───
@@ -513,16 +541,13 @@
 
     lenis.on('scroll', (e) => {
       const y = e.animatedScroll;
-      const vh = window.innerHeight;
-      const prog = Math.min(y / (document.documentElement.scrollHeight - vh), 1);
-
       orb1.style.transform = `translateY(${y * -0.08}px)`;
       orb2.style.transform = `translateY(${y * 0.06}px)`;
       orb3.style.transform = `translate(${y * -0.03}px, ${y * -0.04}px)`;
       gridBg.style.transform = `translateY(${y * -0.15}px)`;
     });
 
-    // ─── 3D section reveal (observer) ───
+    // ─── 3D section reveal ───
     const secObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -531,7 +556,6 @@
         }
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
-
     document.querySelectorAll('.sec-reveal').forEach(el => secObserver.observe(el));
 
     // ─── Word-split headings ───
@@ -549,7 +573,6 @@
         if (i < words.length - 1) h.appendChild(document.createTextNode(' '));
       });
     });
-
     const wordObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -558,7 +581,6 @@
         }
       });
     }, { threshold: 0.5 });
-
     document.querySelectorAll('.split-heading').forEach(h => wordObserver.observe(h));
 
     // ─── Hero entrance ───
@@ -570,7 +592,6 @@
     const phrases = ['Software Engineer', 'Systems Builder', 'Problem Solver'];
     let phraseIndex = 0, charIndex = 0, isDeleting = false;
     const typedEl = document.getElementById('typedText');
-
     function type() {
       const current = phrases[phraseIndex];
       if (isDeleting) {
@@ -580,15 +601,8 @@
         typedEl.textContent = current.substring(0, charIndex + 1);
         charIndex++;
       }
-      if (!isDeleting && charIndex === current.length) {
-        isDeleting = true;
-        setTimeout(type, 2000);
-        return;
-      }
-      if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-      }
+      if (!isDeleting && charIndex === current.length) { isDeleting = true; setTimeout(type, 2000); return; }
+      if (isDeleting && charIndex === 0) { isDeleting = false; phraseIndex = (phraseIndex + 1) % phrases.length; }
       setTimeout(type, isDeleting ? 40 : 80);
     }
     type();
@@ -631,12 +645,44 @@
       });
     }
 
+    // ─── Theme toggle ───
+    const sunIcon = document.getElementById('sunIcon');
+    const moonIcon = document.getElementById('moonIcon');
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+
+    function setTheme(dark) {
+      if (dark) {
+        html.classList.add('dark');
+        sunIcon.style.opacity = '0';
+        sunIcon.style.transform = 'rotate(90deg) scale(0)';
+        moonIcon.style.opacity = '1';
+        moonIcon.style.transform = 'rotate(0deg) scale(1)';
+      } else {
+        html.classList.remove('dark');
+        sunIcon.style.opacity = '1';
+        sunIcon.style.transform = 'rotate(0deg) scale(1)';
+        moonIcon.style.opacity = '0';
+        moonIcon.style.transform = 'rotate(-90deg) scale(0)';
+      }
+      localStorage.theme = dark ? 'dark' : 'light';
+    }
+
+    // Restore saved theme
+    const saved = localStorage.theme;
+    if (saved === 'light') setTheme(false);
+    else setTheme(true);
+
+    themeToggle.addEventListener('click', () => {
+      setTheme(!html.classList.contains('dark'));
+    });
+
     // ─── Mobile menu ───
     const menuBtn = document.getElementById('mobileMenu');
     const hamburger = document.createElement('button');
-    hamburger.className = 'sm:hidden p-2 text-white/40 hover:text-white transition';
+    hamburger.className = 'sm:hidden p-2 relative w-8 h-8 flex items-center justify-center';
     hamburger.setAttribute('aria-label', 'Menu');
-    hamburger.innerHTML = `<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>`;
+    hamburger.innerHTML = `<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--text-white-40);"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>`;
     document.getElementById('themeToggle').parentElement.insertBefore(hamburger, document.getElementById('themeToggle'));
     hamburger.addEventListener('click', () => menuBtn.classList.toggle('hidden'));
     document.querySelectorAll('#mobileMenu a').forEach(a => {
@@ -647,14 +693,6 @@
       if (!e.target.closest('#mobileMenu') && !e.target.closest('button[aria-label="Menu"]')) {
         menuBtn.classList.add('hidden');
       }
-    });
-
-    // ─── Theme toggle ───
-    const themeToggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
-    themeToggle.addEventListener('click', () => {
-      html.classList.toggle('dark');
-      localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
     });
   </script>
 </body>
